@@ -1,0 +1,110 @@
+/* ============================================================
+   views.css — Estilos específicos de vistas (login, dashboard, etc.)
+   ============================================================ */
+
+/* ---------- Login ---------- */
+.auth {
+  min-height: 100vh; display: grid; grid-template-columns: 1.1fr 1fr;
+}
+.auth__hero {
+  background: linear-gradient(150deg, var(--brand-600), var(--brand-700) 60%, #0a2e2b);
+  color: #fff; padding: clamp(1.5rem, 5vw, 4rem); display: flex; flex-direction: column; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.auth__hero::after {
+  content: ""; position: absolute; right: -80px; bottom: -80px; width: 320px; height: 320px;
+  border-radius: 50%; background: radial-gradient(circle, rgba(219,39,119,.35), transparent 70%);
+}
+.auth__hero h1 { color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem); max-width: 16ch; }
+.auth__hero p { color: #cdebe6; max-width: 46ch; }
+.auth__features { display: flex; flex-direction: column; gap: .8rem; margin-top: 1.5rem; }
+.auth__feature { display: flex; gap: .7rem; align-items: flex-start; }
+.auth__feature .ico { background: rgba(255,255,255,.12); border-radius: 10px; width: 38px; height: 38px; display: grid; place-items: center; flex: none; }
+
+.auth__panel { display: grid; place-items: center; padding: clamp(1.5rem, 5vw, 3rem); background: var(--bg); }
+.auth__card { width: 100%; max-width: 400px; }
+.auth__demo {
+  margin-top: 1rem; background: var(--brand-50); border: 1px dashed var(--brand-300);
+  border-radius: var(--r-md); padding: .9rem 1rem; font-size: var(--fs-sm);
+}
+.auth__demo button { all: unset; cursor: pointer; color: var(--brand-700); font-weight: 600; text-decoration: underline; }
+.gov-strip { display: flex; align-items: center; gap: .6rem; color: var(--ink-500); font-size: var(--fs-xs); margin-top: 1.4rem; }
+
+@media (max-width: 860px) { .auth { grid-template-columns: 1fr; } .auth__hero { display: none; } }
+
+/* ---------- Hero saludo dashboard ---------- */
+.hero-greet {
+  background: linear-gradient(120deg, var(--brand-500), var(--brand-600));
+  color: #fff; border-radius: var(--r-lg); padding: 1.5rem 1.6rem;
+  display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+}
+.hero-greet h2 { color: #fff; margin: 0; }
+.hero-greet p { color: #d7f0ec; margin: .2rem 0 0; }
+.hero-greet .avatar {
+  width: 60px; height: 60px; border-radius: 50%; background: var(--accent-500);
+  display: grid; place-items: center; font-size: 1.5rem; font-weight: 800; flex: none;
+}
+.hero-greet__cta { margin-left: auto; }
+
+/* ---------- Etapa actual destacada ---------- */
+.next-step {
+  border-left: 5px solid var(--accent-500);
+  background: var(--accent-100);
+}
+.next-step .badge--accent { background: #fff; }
+
+/* ---------- Lista de citas ---------- */
+.cita-item { display: flex; gap: 1rem; align-items: center; padding: .9rem 0; border-bottom: 1px solid var(--line-100); }
+.cita-item:last-child { border-bottom: none; }
+.cita-date {
+  width: 64px; flex: none; text-align: center; background: var(--brand-50);
+  border: 1px solid var(--brand-100); border-radius: var(--r-md); padding: .4rem; color: var(--brand-700);
+}
+.cita-date .d { font-size: 1.4rem; font-weight: 800; line-height: 1; }
+.cita-date .m { font-size: var(--fs-xs); text-transform: uppercase; }
+.cita-body { flex: 1; }
+.cita-body h4 { margin: 0 0 .15rem; }
+
+/* ---------- Notificaciones ---------- */
+.notif { display: flex; gap: .8rem; padding: .85rem; border-radius: var(--r-md); border: 1px solid var(--line-200); }
+.notif--unread { background: var(--brand-50); border-color: var(--brand-100); }
+.notif__ico { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; flex: none; font-size: 1.2rem; }
+.notif__time { color: var(--ink-400); font-size: var(--fs-xs); }
+
+/* ---------- Orientación (acordeón) ---------- */
+.accordion__item { border: 1px solid var(--line-200); border-radius: var(--r-md); margin-bottom: .6rem; overflow: hidden; }
+.accordion__btn {
+  width: 100%; text-align: left; background: var(--surface); border: none; cursor: pointer;
+  padding: .95rem 1.1rem; font-weight: 600; display: flex; justify-content: space-between; gap: 1rem; align-items: center;
+}
+.accordion__btn:hover { background: var(--brand-50); }
+.accordion__panel { padding: 0 1.1rem 1.1rem; color: var(--ink-700); }
+.accordion__item[hidden] { display: none; }
+
+/* ---------- Upload simulado ---------- */
+.dropzone {
+  border: 2px dashed var(--brand-300); border-radius: var(--r-lg);
+  padding: 2rem; text-align: center; background: var(--brand-50); cursor: pointer;
+}
+.dropzone:hover { background: var(--brand-100); }
+.doc-row { display: flex; align-items: center; gap: .8rem; padding: .7rem 0; border-bottom: 1px solid var(--line-100); }
+.doc-row .doc-ico { font-size: 1.4rem; }
+
+/* ---------- Apoyo / comunidad ---------- */
+.post { border: 1px solid var(--line-200); border-radius: var(--r-md); padding: 1rem; margin-bottom: .8rem; }
+.post__head { display: flex; align-items: center; gap: .6rem; margin-bottom: .5rem; }
+.post__avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--accent-100); color: var(--accent-600); display: grid; place-items: center; font-weight: 700; }
+
+/* ---------- Map / ruta física ---------- */
+.map-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: .7rem; }
+.map-node {
+  background: var(--surface); border: 1px solid var(--line-200); border-radius: var(--r-md);
+  padding: .9rem; position: relative;
+}
+.map-node[data-state="done"] { border-color: var(--ok-500); }
+.map-node[data-state="current"] { border-color: var(--accent-500); border-width: 2px; }
+.map-node .num { position: absolute; top: -10px; left: -10px; width: 26px; height: 26px; border-radius: 50%; background: var(--brand-500); color: #fff; display: grid; place-items: center; font-size: var(--fs-xs); font-weight: 700; }
+
+/* ---------- Empty state ---------- */
+.empty { text-align: center; padding: 2.5rem 1rem; color: var(--ink-500); }
+.empty .big { font-size: 2.4rem; }

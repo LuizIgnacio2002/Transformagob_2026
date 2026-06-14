@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="OncoRuta Mujer Inteligente - Sistema digital de navegación del paciente del INEN para un diagnóstico oportuno, equitativo, inclusivo e intercultural." />
+  <meta name="theme-color" content="#14746f" />
+  <title>OncoRuta Mujer Inteligente · INEN</title>
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Hoja de estilos modular: tokens -> base -> layout -> componentes -> vistas -> accesibilidad -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/views.css" />
+  <link rel="stylesheet" href="css/accessibility.css" />
+</head>
+
+<body data-font-scale="1" data-contrast="normal" data-lang="es">
+  <!-- Enlace de salto para lectores de pantalla / teclado (accesibilidad WCAG) -->
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+
+  <!-- Región viva para anuncios accesibles (aria-live) -->
+  <div id="a11y-live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Contenedor raíz de la aplicación: el router inyecta cada vista aquí -->
+  <div id="app" class="app-root"></div>
+
+  <!-- Contenedor de notificaciones tipo toast -->
+  <div id="toast-root" class="toast-root" aria-live="assertive"></div>
+
+  <!-- Contenedor de modales -->
+  <div id="modal-root"></div>
+
+  <!--
+    Punto de entrada de la aplicación. Usamos módulos nativos de ES (type="module")
+    para mantener el código correctamente separado por responsabilidad.
+  -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

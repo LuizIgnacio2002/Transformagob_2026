@@ -1,0 +1,54 @@
+/* ============================================================
+   accessibility.css — Panel de accesibilidad y clases utilitarias
+   El factor de escala real se aplica vía la variable --font-scale
+   (definida desde js/a11y.js sobre el <body>).
+   ============================================================ */
+
+/* Botón flotante para abrir el panel de accesibilidad */
+.a11y-fab {
+  position: fixed; right: 18px; bottom: 18px; z-index: 240;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--accent-500); color: #fff; border: none; cursor: pointer;
+  box-shadow: var(--shadow-lg); font-size: 1.5rem;
+  display: grid; place-items: center;
+}
+.a11y-fab:hover { filter: brightness(1.08); }
+
+/* Panel deslizante */
+.a11y-panel {
+  position: fixed; right: 18px; bottom: 84px; z-index: 240;
+  width: 300px; max-width: calc(100vw - 36px);
+  background: var(--surface); border: 1px solid var(--line-200);
+  border-radius: var(--r-lg); box-shadow: var(--shadow-lg); padding: 1.1rem;
+}
+.a11y-panel[hidden] { display: none; }
+.a11y-panel h3 { display: flex; align-items: center; gap: .5rem; }
+.a11y-row { display: flex; align-items: center; justify-content: space-between; gap: .6rem; padding: .55rem 0; border-bottom: 1px solid var(--line-100); }
+.a11y-row:last-child { border-bottom: none; }
+.a11y-controls { display: flex; gap: .35rem; }
+.a11y-btn {
+  border: 1px solid var(--line-200); background: var(--surface); border-radius: var(--r-sm);
+  width: 34px; height: 34px; cursor: pointer; font-weight: 700; display: grid; place-items: center;
+}
+.a11y-btn[aria-pressed="true"] { background: var(--brand-500); color: #fff; border-color: var(--brand-500); }
+
+/* Selector de idioma */
+.lang-switch { display: inline-flex; border: 1px solid var(--line-200); border-radius: var(--r-full); overflow: hidden; }
+.lang-switch button { border: none; background: var(--surface); padding: .35rem .8rem; cursor: pointer; font-weight: 600; font-size: var(--fs-sm); }
+.lang-switch button[aria-pressed="true"] { background: var(--brand-500); color: #fff; }
+
+/* Botón de lectura en voz alta (texto a voz) */
+.tts-btn {
+  border: 1px solid var(--brand-200, var(--brand-100)); background: var(--brand-50);
+  color: var(--brand-700); border-radius: var(--r-full); padding: .3rem .7rem;
+  font-size: var(--fs-xs); cursor: pointer; display: inline-flex; align-items: center; gap: .3rem;
+}
+.tts-btn:hover { background: var(--brand-100); }
+.tts-btn[aria-pressed="true"] { background: var(--accent-500); color: #fff; border-color: var(--accent-500); }
+
+/* Subrayar enlaces (preferencia de accesibilidad) */
+[data-underline="on"] a { text-decoration: underline; }
+
+/* Tipografía para dislexia: mayor espaciado */
+[data-readable="on"] body,
+body[data-readable="on"] { letter-spacing: .03em; word-spacing: .08em; line-height: 1.8; }
