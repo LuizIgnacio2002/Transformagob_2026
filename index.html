@@ -41,9 +41,43 @@
   <div id="modal-root"></div>
 
   <!--
-    Punto de entrada de la aplicación. Usamos módulos nativos de ES (type="module")
-    para mantener el código correctamente separado por responsabilidad.
+    Carga ordenada de scripts clásicos (NO módulos ES) para que el proyecto
+    funcione abriendo index.html directamente (file://) sin necesidad de un
+    servidor. Cada archivo se registra en el espacio de nombres global
+    `window.App`, manteniendo la separación por responsabilidad.
+
+    El orden importa: las dependencias se cargan antes que quienes las usan.
   -->
-  <script type="module" src="js/app.js"></script>
+  <!-- 1) Base: configuración, idioma y datos -->
+  <script src="js/config.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/mockData.js"></script>
+
+  <!-- 2) Núcleo: estado, utilidades, notificaciones, backend simulado -->
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/api.js"></script>
+
+  <!-- 3) Accesibilidad -->
+  <script src="js/a11y.js"></script>
+
+  <!-- 4) Vistas -->
+  <script src="js/views/login.js"></script>
+  <script src="js/views/dashboard.js"></script>
+  <script src="js/views/ruta.js"></script>
+  <script src="js/views/citas.js"></script>
+  <script src="js/views/documentos.js"></script>
+  <script src="js/views/orientacion.js"></script>
+  <script src="js/views/notificaciones.js"></script>
+  <script src="js/views/apoyo.js"></script>
+  <script src="js/views/perfil.js"></script>
+  <script src="js/views/panel.js"></script>
+  <script src="js/views/pacientes.js"></script>
+  <script src="js/views/indicadores.js"></script>
+
+  <!-- 5) Enrutador y arranque -->
+  <script src="js/router.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
