@@ -83,10 +83,14 @@
 
 /* ---------- Upload simulado ---------- */
 .dropzone {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: .4rem; width: 100%;
   border: 2px dashed var(--brand-300); border-radius: var(--r-lg);
   padding: 2rem; text-align: center; background: var(--brand-50); cursor: pointer;
+  transition: background .15s, border-color .15s;
 }
-.dropzone:hover { background: var(--brand-100); }
+.dropzone:hover { background: var(--brand-100); border-color: var(--brand-400); }
+.dropzone > * { margin: 0; }
 .doc-row { display: flex; align-items: center; gap: .8rem; padding: .7rem 0; border-bottom: 1px solid var(--line-100); }
 .doc-row .doc-ico { font-size: 1.4rem; }
 
