@@ -281,19 +281,6 @@ flowchart LR
 | `cuidadora` | dashboard, ruta, citas, documentos, notificaciones, apoyo, perfil |
 | `admin` | panel, pacientes, indicadores, perfil |
 
-```mermaid
-flowchart TD
-    Start([hashchange / carga]) --> Sess{¿Hay sesión?}
-    Sess -- No --> Login[render login]
-    Sess -- Sí --> Role[menuFor(rol)]
-    Role --> Valid{¿Ruta permitida?}
-    Valid -- No --> Redir[redirige a ruta por defecto del rol]
-    Redir --> Start
-    Valid -- Sí --> Shell[construye shell: sidebar + topbar]
-    Shell --> Render["await view.render(ctx)"]
-    Render --> Mount["view.mount(main, ctx)"]
-    Mount --> Done([vista lista])
-```
 
 ---
 
